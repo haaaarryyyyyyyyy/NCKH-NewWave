@@ -152,15 +152,15 @@ btnPrimary.addEventListener('click', () => {
   updateStatus('Manual');
 });
 
-// // Lắng nghe sự thay đổi của 'status/mode' trong Firebase và cập nhật statusChip
-// firebase.database().ref('status/mode').on('value', (snapshot) => {
-//   const mode = snapshot.val(); // Lấy giá trị hiện tại của 'mode' từ Firebase
-//   if (mode) {
-//     statusChip.innerText = mode; // Cập nhật lại statusChip với giá trị từ Firebase
-//   } else {
-//     statusChip.innerText = 'Auto'; // Nếu không có giá trị, mặc định là 'Auto'
-//   }
-// });
+// Lắng nghe sự thay đổi của 'status/mode' trong Firebase và cập nhật statusChip
+firebase.database().ref('status/mode').on('value', (snapshot) => {
+  const mode = snapshot.val(); // Lấy giá trị hiện tại của 'mode' từ Firebase
+  if (mode) {
+    statusChip.innerText = mode; // Cập nhật lại statusChip với giá trị từ Firebase
+  } else {
+    statusChip.innerText = 'Auto'; // Nếu không có giá trị, mặc định là 'Auto'
+  }
+});
 
 firebase.database().ref('status/mode').on('value', (snapshot) => {
   const mode = snapshot.val(); // Get the mode value from Firebase
